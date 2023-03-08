@@ -6,9 +6,6 @@ class App extends Component {
     return(     
       <>     
         <Button label="Entrar"/><br />
-        <Button label="Sair" num={10}/><br />
-        <Button label="Logar"/><br />
-
       </>
     )
   }
