@@ -5,26 +5,33 @@ class Button extends Component {
       super();
 
       this.state = {
-        name: ''      //estado string vazio
+        signed: false
       }
+
+      this.toggleState = this.toggleState.bind(this)  //this é quem chama | .bind força método a lembrar quem o chamou
   }
 
+  toggleState() {   
+    this.setState({ signed: !this.state.signed })   //se for verdadeiro retorna falso e vice-versa
+  }
 
   render() {
     return(
-      <main>
-        <h1> Estado atual: { this.state.name } </h1>  {/*acessa estado name*/}
-
-      <input 
-        value={this.state.name}
-        onChange={e => this.setState({ name: e.target.value })} /*dentro do value em target temos a innformacao do input | atualiza estado name*/
-      />
-
-      <button onClick={() => console.log('Estado atual: ', this.state.name)}>
-        Mostrar Estado
-      </button>
-      
-      </main>
+      <>
+        {     //RENDERIZACAO CONDICIONAL
+          this.state.signed ? (  //se for verdadeiro retorna button e h1
+            <>                        { /*colocamos o react fragments porque nao pode retornar dois elementos*/}
+              <button onClick={ this.toggleState }>Sair</button>
+              <h1>Logado</h1>
+            </>
+          ) : (
+            <>
+              <button onClick={ this.toggleState }>Entrar</button>
+              <h1>Deslogado</h1>
+            </>
+          ) 
+        }
+      </>
     )
   }
 }
