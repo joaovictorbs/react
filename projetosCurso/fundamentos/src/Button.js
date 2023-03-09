@@ -1,37 +1,34 @@
 import React, { Component } from 'react'
+import Timer from './Timer'   //importa timer
+
 
 class Button extends Component {
   constructor(props) {
       super();
 
       this.state = {
-        signed: false
+        showTimer: true   //se showTimer for verdadeira mostra timer do timer.js
       }
-
-      this.toggleState = this.toggleState.bind(this)  //this é quem chama | .bind força método a lembrar quem o chamou
   }
 
-  toggleState() {   
-    this.setState({ signed: !this.state.signed })   //se for verdadeiro retorna falso e vice-versa
-  }
+  //inicialização
+  //montagem
+  //atualizações
+  //desmontagem
 
   render() {
     return(
-      <>
-        {     //RENDERIZACAO CONDICIONAL
-          this.state.signed ? (  //se for verdadeiro retorna button e h1
-            <>                        { /*colocamos o react fragments porque nao pode retornar dois elementos*/}
-              <button onClick={ this.toggleState }>Sair</button>
-              <h1>Logado</h1>
-            </>
-          ) : (
-            <>
-              <button onClick={ this.toggleState }>Entrar</button>
-              <h1>Deslogado</h1>
-            </>
-          ) 
+      <main>
+        {
+          this.state.showTimer && <Timer /> //se estado timer for true, entao apresente timer  | && informa que se for true aparece
         }
-      </>
+  
+        <button onClick={() => this.setState( { showTimer: false})}>    {/*quando clica no botao, altera valor do estado*/}
+          Remover Timer
+        </button>
+
+      </main>
+
     )
   }
 }
