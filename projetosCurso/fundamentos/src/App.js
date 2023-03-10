@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
 
-// const names = ['Luis', 'Natalia', 'João', 'Maria', 'Camila', 'Felipe']  //lista
-
-const names = [   //array de objetos
-  {
-    name: 'Luis',
-    age: 19,
+const styles = {        //cria objeto com valores CSS
+  container: {
+    backgroundColor: '#333',
+    padding: '20px'
   },
-  {
-    name: 'Natalia',
-    age: 27,
-  },
-  {
-    name: 'Lucas',
-    age: 22,
-  }  
-]  //lista
+  title: {
+    fontSize: '60px',
+    fontFamily: 'sans-serif',
+    color: '#fff'
+  }
+}
 
 class App extends Component { 
   constructor(props) {
@@ -24,15 +19,12 @@ class App extends Component {
 
   render() {                  
     return(     
-      <ul>
-      {
-        names.map((person, index) => (  
-          <li key={index}>
-            <span>Nome: { person.name }</span>, <span> Idade: { person.age }</span>
-          </li>
-        ))   
-      }     
-      </ul>
+      <div style={styles.container}>  {/*aplica na div os estilos do container*/}
+        <h1>Olá Mundo!</h1>
+        <h1 style={styles.title}>Olá Mundo!</h1>
+        <h3 style={{ backgroundColor: '#f33', color: '#fff', fontSize: '40px' }}>Olá Mundo!</h3>    {/*aplicando css direto no elemento*/} {/*em css inline, precisa ser camelCase */}
+  
+      </div>
     )
   }
 }
