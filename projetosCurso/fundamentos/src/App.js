@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
-const names = ['Luis', 'Natalia', 'João', 'Maria', 'Camila', 'Felipe']  //lista
+// const names = ['Luis', 'Natalia', 'João', 'Maria', 'Camila', 'Felipe']  //lista
 
-/*
 const names = [   //array de objetos
   {
     name: 'Luis',
@@ -16,7 +15,7 @@ const names = [   //array de objetos
     name: 'Lucas',
     age: 22,
   }  
-] */ //lista
+]  //lista
 
 class App extends Component { 
   constructor(props) {
@@ -25,11 +24,12 @@ class App extends Component {
 
   render() {                  
     return(     
-      <ul>                         {/*lista html*/}
+      <ul>
       {
-        names.map((name, index) => (  //para cada indice retorna elemento
-          <li key={index}>{ name }</li>  //para cada nome cria um li  | o key ajuda o react a saber como o elemento esta, se foi removido, adiconado, etc
-
+        names.map((person, index) => (  
+          <li key={index}>
+            <span>Nome: { person.name }</span>, <span> Idade: { person.age }</span>
+          </li>
         ))   
       }     
       </ul>
