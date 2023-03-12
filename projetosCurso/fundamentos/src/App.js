@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
-import './styles.css'
+// import Estado from "./Estado";
+import { useState } from 'react';
+import { Efeito } from './hooks/Efeito'
 
-class App extends Component { 
-  constructor(props) {
-    super()
-  }
+ function App() {
+  const [show, setShow] = useState(true)
 
-  render() {                  
-    return(     
-      <div className='container'>  {/*usamos className ao inves de class pois class ja e uma palavra reservada do JS */}
-        <h1>Olá Mundo!</h1>
-      </div>
-    )
-  }
-}
+   return (
+     <>
+     {
+      show && <Efeito />    // so mostra componente em tela se show for verdadeiro
+     }
 
-export default App
+     <button onClick={() => setShow(false)}>Desmontar componente</button>
+    </>
+   );
+ }
+
+export default App;
